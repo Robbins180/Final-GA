@@ -1,19 +1,20 @@
 // Dependencies
 
 const express = require('express')
-const mognoose = require('mongoose')
+const mongoose = require('mongoose')
 const app = express()
 
 
 // Configuration
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 require('dotenv').config()
 
 
 // MiddleWare
 
 app.use(express.json())
+app.use(express.static('public'))
 
 // Controller links
 
