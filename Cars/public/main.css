@@ -1,9 +1,12 @@
 /* Top */
+* {
+  font-size: 18px;
+}
 
 h1 {
   text-align: center;
-  text-shadow: 1px 1px 2px blue;
-  border: 2px solid black;
+  text-shadow: 1px 1px 2px #DDAF94;
+  border: 4px solid black;
 
 
 }
@@ -11,12 +14,21 @@ h1 {
 /*  */
 h2 {
   text-align: center;
-  text-shadow: 1px 1px 2px blue;
+  text-shadow: 1px 1px 2px #DDAF94;
+
 }
 
 summary {
 
 }
+/* Create */
+
+#submit {
+  background: #DDAF94;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
 
 img {
   width: 200px;
@@ -36,10 +48,10 @@ li {
   align-items: center;
   flex-basis: 28%;
   margin: 2%;
-  background: #12121212;
+  background: #FDF8F5;
   box-sizing: border-box;
   padding: 2%;
-  box-shadow: 2px 2px 4px gold;
+  box-shadow: 2px 2px 4px #266150;
 }
 
 .create {
@@ -49,10 +61,10 @@ li {
   align-items: center;
   flex-basis: 28%;
   margin: 2%;
-  background: #12121212;
+  background: #FDF8F5;
   box-sizing: border-box;
   padding: 2%;
-  box-shadow: 2px 2px 4px gold;
+  box-shadow: 2px 2px 4px #266150;
 }
 
 .column {
@@ -62,19 +74,26 @@ li {
   align-items: center;
   flex-basis: 28%;
   margin: 2%;
-  background: #12121212;
+  background: #FDF8F5;
   box-sizing: border-box;
   padding: 2%;
-  box-shadow: 2px 2px 4px gold;
+  box-shadow: 2px 2px 4px #DDAF94;
 }
 
 #images {
   height: 50px;
-  width: 200px;
+  width: 200px;,
+
+}
+
+button #update {
+  text-align: center;
 }
 
 button {
-  background: gold;
+  align-items: center;
+  background: #266150;
+  color: white;
   padding: 0.5em;
-  margin: 0.5em;
+  margin: 10px auto;
 }

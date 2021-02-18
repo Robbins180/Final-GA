@@ -3,10 +3,10 @@ class App extends React.Component {
   state= {
     brand: '',
     model: '',
-    image: '',
-    price: '',
     year: '',
     color: '',
+    price: '',
+    image: '',
     cars: []
   }
 
@@ -19,7 +19,7 @@ class App extends React.Component {
   axios
     .post('/cars', this.state)
     .then(response =>
-      this.setState({ cars: response.data, brand: '', model: '', price: '', year: '', color: '', image: '' })
+      this.setState({ cars: response.data, brand: '', model: '', year: '', color: '', price: '', image: '' })
     )
   }
 
@@ -31,9 +31,9 @@ class App extends React.Component {
       cars: response.data,
       brand: '',
       model: '',
-      price: '',
       year: '',
       color: '',
+      price: '',
       image: ''
       })
     })
@@ -75,10 +75,6 @@ componentDidMount = () => {
             <br />
             <input type="text" id="model" onChange={this.handleChange} />
             <br />
-            <label htmlFor="price">Price</label>
-            <br />
-            <input type="text" id="price" onChange={this.handleChange} />
-            <br />
             <label htmlFor="year">Year</label>
             <br />
             <input type="text" id="year" onChange={this.handleChange} />
@@ -87,33 +83,40 @@ componentDidMount = () => {
             <br />
             <input type="text" id="color" onChange={this.handleChange} />
             <br />
-            <label htmlFor="img">Image</label>
+            <label htmlFor="price">Price</label>
             <br />
-            <input type="text" id="img" onChange={this.handleChange} />
+            <input type="text" id="price" onChange={this.handleChange} />
             <br />
-            <input type="submit" value="Create Car" />
+            <label htmlFor="images">Image</label>
+            <br />
+            <input type="text" id="images" onChange={this.handleChange} />
+            <br />
+            <input type="submit" id='submit' value="Create Car" />
         </form>
         </details>
         </div>
 
 
-        <div className='column-gap is-multiline is-primary'>
+        <div className='column-is-gap is-multiline is-3 is-narrow'>
         <h2>Vehicle Inventory</h2>
         <ul>
           {this.state.cars.map(car => {
             return (
+              <div key={car._id}>
               <li>
               {car.brand}
              <br />
               {car.model}
               <br />
-              {car.price}
-              <br />
               {car.year}
               <br />
               {car.color}
               <br />
-              <img src={car.image} id='images'alt={car.model}/>
+              {car.price}
+              <br />
+              <img src= {car.image} id='images' alt={car.color}/>
+
+
 
 
 
@@ -132,12 +135,6 @@ componentDidMount = () => {
               onChange={this.handleChange}
               />
               <br />
-              <label htmlFor="price">Price</label>
-              <br />
-              <input type="text" id="price"
-              onChange={this.handleChange}
-              />
-              <br />
               <label htmlFor="year">Year</label>
               <br />
               <input type="text" id="year"
@@ -150,14 +147,19 @@ componentDidMount = () => {
               onChange={this.handleChange}
               />
               <br />
+              <label htmlFor="price">Price</label>
+              <br />
+              <input type="text" id="price"
+              onChange={this.handleChange}
+              />
+              <br />
               <label htmlFor="image">Image</label>
               <br />
               <input type="text" id="image"
               onChange={this.handleChange}
               />
               <br />
-              <button value={car._id} onClick={this.updateCar}>Update Car
-              </button>
+              <input type="submit" value="Update Car" id='updateCar'/>
               </form>
               </details>
 
@@ -165,6 +167,7 @@ componentDidMount = () => {
               <button value={car._id} onClick={this.deleteCar}>DELETE
               </button>
               </li>
+              </div>
             )
           })
         }
