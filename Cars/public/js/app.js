@@ -4,6 +4,9 @@ class App extends React.Component {
     brand: '',
     model: '',
     image: '',
+    price: '',
+    year: '',
+    color: '',
     cars: []
   }
 
@@ -16,7 +19,7 @@ class App extends React.Component {
   axios
     .post('/cars', this.state)
     .then(response =>
-      this.setState({ cars: response.data, brand: '', model: '', image: '' })
+      this.setState({ cars: response.data, brand: '', model: '', price: '', year: '', color: '', image: '' })
     )
   }
 
@@ -28,6 +31,9 @@ class App extends React.Component {
       cars: response.data,
       brand: '',
       model: '',
+      price: '',
+      year: '',
+      color: '',
       image: ''
       })
     })
@@ -54,9 +60,10 @@ componentDidMount = () => {
 
   render = () => {
     return (
-      <div>
+      <div className='columns is-multiline is-3 is-narrow-mobile is-vcentered'>
 
-        <h2>Create Car</h2>
+        <div className='create '>
+        <h2>New viehicle registry</h2>
           <details>
           <summary>Add a viehicle</summary>
           <form onSubmit={this.handleSubmit}>
@@ -68,6 +75,18 @@ componentDidMount = () => {
             <br />
             <input type="text" id="model" onChange={this.handleChange} />
             <br />
+            <label htmlFor="price">Price</label>
+            <br />
+            <input type="text" id="price" onChange={this.handleChange} />
+            <br />
+            <label htmlFor="year">Year</label>
+            <br />
+            <input type="text" id="year" onChange={this.handleChange} />
+            <br />
+            <label htmlFor="color">Color</label>
+            <br />
+            <input type="text" id="color" onChange={this.handleChange} />
+            <br />
             <label htmlFor="img">Image</label>
             <br />
             <input type="text" id="img" onChange={this.handleChange} />
@@ -75,8 +94,10 @@ componentDidMount = () => {
             <input type="submit" value="Create Car" />
         </form>
         </details>
+        </div>
 
-        
+
+        <div className='column-gap is-multiline is-primary'>
         <h2>Vehicle Inventory</h2>
         <ul>
           {this.state.cars.map(car => {
@@ -85,6 +106,12 @@ componentDidMount = () => {
               {car.brand}
              <br />
               {car.model}
+              <br />
+              {car.price}
+              <br />
+              {car.year}
+              <br />
+              {car.color}
               <br />
               <img src={car.image} id='images'alt={car.model}/>
 
@@ -105,13 +132,32 @@ componentDidMount = () => {
               onChange={this.handleChange}
               />
               <br />
+              <label htmlFor="price">Price</label>
+              <br />
+              <input type="text" id="price"
+              onChange={this.handleChange}
+              />
+              <br />
+              <label htmlFor="year">Year</label>
+              <br />
+              <input type="text" id="year"
+              onChange={this.handleChange}
+              />
+              <br />
+              <label htmlFor="color">Color</label>
+              <br />
+              <input type="text" id="color"
+              onChange={this.handleChange}
+              />
+              <br />
               <label htmlFor="image">Image</label>
               <br />
               <input type="text" id="image"
               onChange={this.handleChange}
               />
               <br />
-              <input type="submit" value="Update Car" />
+              <button value={car._id} onClick={this.updateCar}>Update Car
+              </button>
               </form>
               </details>
 
@@ -123,6 +169,7 @@ componentDidMount = () => {
           })
         }
         </ul>
+        </div>
       </div>
     )
   }

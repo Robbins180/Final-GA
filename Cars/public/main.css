@@ -1,7 +1,23 @@
+/* Top */
+
 h1 {
   text-align: center;
-  text-shadow: 1px 1px 2px gold;
+  text-shadow: 1px 1px 2px blue;
+  border: 2px solid black;
+
+
 }
+
+/*  */
+h2 {
+  text-align: center;
+  text-shadow: 1px 1px 2px blue;
+}
+
+summary {
+
+}
+
 img {
   width: 200px;
   display: block;
@@ -24,6 +40,37 @@ li {
   box-sizing: border-box;
   padding: 2%;
   box-shadow: 2px 2px 4px gold;
+}
+
+.create {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 28%;
+  margin: 2%;
+  background: #12121212;
+  box-sizing: border-box;
+  padding: 2%;
+  box-shadow: 2px 2px 4px gold;
+}
+
+.column {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 28%;
+  margin: 2%;
+  background: #12121212;
+  box-sizing: border-box;
+  padding: 2%;
+  box-shadow: 2px 2px 4px gold;
+}
+
+#images {
+  height: 50px;
+  width: 200px;
 }
 
 button {
